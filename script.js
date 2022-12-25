@@ -39,6 +39,11 @@ checkButton.addEventListener("click", () => {
                 notes.children[i + 1].style.backgroundColor = "green";
                 notes.children[i + 1].style.color = "white";
             }
+            else {
+                notes.children[i + 1].style.backgroundColor = "greenyellow";
+                notes.children[i + 1].style.color = "greenyellow";
+
+            }
         }
     }
     else {
