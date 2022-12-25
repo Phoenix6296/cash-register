@@ -3,7 +3,7 @@ const cashGiven = document.querySelector("#cash-given");
 
 const checkButton = document.querySelector("#submit");
 checkButton.addEventListener("click", () => {
-    if (billAmount.value > 0 && cashGiven.value > 0 && cashGiven.value >= billAmount.value) {
+    if (billAmount.value > '0' && cashGiven.value > '0' && (cashGiven.value - billAmount.value) >= '0') {
         const change = cashGiven.value - billAmount.value;
         const noOf2000Notes = Math.floor(change / 2000);
         const noOf500Notes = Math.floor((change - noOf2000Notes * 2000) / 500);
@@ -41,8 +41,13 @@ checkButton.addEventListener("click", () => {
             }
         }
     }
-    else
-        console.error("Invalid Input");
-
-
+    else {
+        let errorMsg = document.getElementById("error-message");
+        setTimeout(() => {
+            errorMsg.style.display = "none";
+        }, 3000);
+        errorMsg.innerHTML = "Invalid Input";
+        errorMsg.style.color = "red";
+        // console.error("Invalid Input");
+    }
 });
